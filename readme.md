@@ -37,6 +37,27 @@ Im Moment bekommt man leider nur das Formular zum auswählen des Subreddits und 
 
 Kannst du uns helfen?
 
+### Teilnahme 
+Clont euch das offizielle Repository (http://github.com/add2de/pottjs), findet alle Bugs und macht es lauffähig. Schickt uns dann bis zum 20.12.2017, 23:59 einen Link zu einem Git-Repository mit eurer Lösung. Die Verlosung der Gewinne findet unter allen lauffähigen Einsendungen statt. Die Gewinner werden am 22.12.2017 von uns informiert. 
+ 
+#### Die genauen Teilnahmebedingungen sehen wie folgt aus: 
+1. Teilnehmen dürfen Personen, die das 18. Lebensjahr vollendet haben 
+1. Ausgenommen sind Mitarbeiter des Veranstalters oder der durchführenden Agentur sowie deren Angehörige 
+1. Es darf nur ein Lösungsvorschlag pro Person versendet werden 
+1. Insgesamt werden 4 Gewinner nach dem Zufallsprinzip ausgewählt 
+1. Gewinnansprüche sind nicht auf andere (natürliche oder juristische) Personen übertragbar 
+1. Eine Barauszahlung der Gewinne ist nicht möglich 
+1. Der Rechtsweg ist ausgeschlossen 
+1. Das Gewinnspiel endet am 20.12.2017 um 23:59 Uhr (CET/MEZ) 
+1. Die Gewinner werden per E-Mail benachrichtigt und erhalten den Gewinn per Post 
+1. Das Gewinnspiel läuft ausschließlich auf GitHub 
+  
+#### Gewinne: 
+1. 1x Sonos One mit eingebautem Alexa Sprachassistent  
+1. 3x Amazon-Gutschein im Wert von 50 € 
+  
+Viel Erfolg beim Lösen wünscht euch das add2-Team! 
+
 ## Kontakt
 Du hast die Aufgabe gelöst oder noch Fragen?  
 Schreib' uns - wir freuen uns, von Dir zu hören.
