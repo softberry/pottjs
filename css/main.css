@@ -10,7 +10,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
+   html {
     color: #444;
     font-size: .875em;
     line-height: 1.5;
@@ -50,7 +50,8 @@ fieldset {
 }
 
 *, *:before, *:after {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -61,7 +62,8 @@ fieldset {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
-    box-shadow: 0 0 1rem rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1rem rgba(0,0,0,.5);
+            box-shadow: 0 0 1rem rgba(0,0,0,.5);
     height: 100%;
     min-height: 100vh;
 }
@@ -85,14 +87,40 @@ a {
 
 form#filter {
     margin: 0 0 1rem;
+    position: relative;
 
+}
+form#filter.loading:after {
+    content: "";
+    border: #8ebd2e 10px dotted;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute; 
+     left: 50%;
+     top:10px;
+     -webkit-transform: translateX(-50%);
+         -ms-transform: translateX(-50%);
+             transform: translateX(-50%);
+     -webkit-animation: rotate 300ms infinite;
+             animation: rotate 300ms infinite;
 }
 
 fieldset {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
 }
 
 .filter-fieldset {
@@ -100,17 +128,23 @@ fieldset {
 }
 
 .filter {
-    flex: 1 1 auto;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
     margin: 0 1rem;
 }
 
 .filter__subreddit {
-    flex-grow: 4;
+    -webkit-box-flex: 4;
+        -ms-flex-positive: 4;
+            flex-grow: 4;
 }
 
 .filter__limit,
 .filter__category {
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     width: 10%;
 }
 
@@ -119,8 +153,13 @@ fieldset {
 }
 
 #sort ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     list-style: none;
     margin: .5em 0 1em;
     padding: 0;
@@ -145,6 +184,8 @@ fieldset {
     color: #fff;
     background: #8ebd2e;
     border-radius: 5px ;
+    -webkit-transition: all 500ms;
+    -o-transition: all 500ms;
     transition: all 500ms;
 }
 
@@ -154,6 +195,8 @@ fieldset {
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
+    -webkit-transition: all 300ms;
+    -o-transition: all 300ms;
     transition: all 300ms;
 }
 
@@ -173,10 +216,18 @@ input, label {
 
 
 #container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     position: relative;
     
 }
@@ -184,15 +235,28 @@ input, label {
 .entry {
     background-color: #ffffff;
     padding: .5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    flex: 0 1 20%;
-    align-items: normal;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 20%;
+            flex: 0 1 20%;
+    -webkit-box-align: normal;
+        -ms-flex-align: normal;
+            align-items: normal;
     position: relative;
     border-radius: 10px;
     border: #ebebeb 1px solid;
     margin: 5px;
+    -webkit-transition: -webkit-transform 300ms;
+    transition: -webkit-transform 300ms;
+    -o-transition: transform 300ms;
     transition: transform 300ms;
+    transition: transform 300ms, -webkit-transform 300ms;
     overflow: hidden;
     z-index: 1;
     min-width: 90%;       
@@ -220,9 +284,12 @@ input, label {
 }
 
 .entry:hover {
-    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+            transform: scale(1.5);
     z-index: 9;
 }
+
 .entry figure {
     text-align: center;
     margin: 0 auto;
@@ -243,9 +310,18 @@ input, label {
 }
 .entry footer {
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     position: absolute;
     left: 0;
     bottom:0;
@@ -255,6 +331,8 @@ input, label {
     max-height: 1px;
     padding: 0 10px;
     opacity: 0;
+    -webkit-transition: all 500ms;
+    -o-transition: all 500ms;
     transition: all 500ms;
     z-index: 1;
     
@@ -271,6 +349,59 @@ input, label {
     opacity: 1;
     max-height: 30%;
 }
-.entry:nth-child(odd) footer { 
-    /* background-color: #3f3f3f; */
+
+.preview {
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 10;
+    cursor: pointer;
+}
+.preview img {
+    display: block;
+    position: relative;
+    max-width: 75%;
+    margin: 90px auto;
+}
+.preview:after {
+    content: "×";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border:#000000 2px solid;
+    background-color: #ffffff;
+    color:#000000;
+    right:20px;
+    top:20px;
+    font-size: 20px;
+    line-height: 16px;
+    text-align: center ;
+    font-weight: bold ;
+
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
 }

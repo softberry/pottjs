@@ -8,8 +8,36 @@
 
 
     function dataAsInteger(str) {
-
         return parseInt(this.getAttribute('data-' + str));
+
+    }
+/**
+ * Show image in a preview layer. 
+ * If Image cloud not loaded , let
+ * @param {*} e window event 
+ */
+    function showImage(e) {
+        
+        var href = this.href;
+        var preview = document.createElement('div');
+        var img = document.createElement('img');
+        img.src = href;
+        preview.className = 'preview';
+        preview.appendChild(img);
+
+        img.addEventListener('error', function () {
+          //  window.open(href, 'blank');
+            document.body.removeChild(preview);
+            return;
+        });
+        e.preventDefault();
+        preview.addEventListener('click', function () {
+            document.body.removeChild(this);
+        });
+        document.body.appendChild(preview);
+
+
+
 
     }
     var sort = function (sortBy, sortType) {
@@ -23,7 +51,7 @@
             var contentB = dataAsInteger.call(b, sortBy);
             // return ((contentA > contentB) && sortType === 'asc') ? -1 : 1;
 
-            return sortType === 'asc'? contentA - contentB : contentB - contentA;
+            return sortType === 'asc' ? contentA - contentB : contentB - contentA;
         });
 
         entries.forEach(function (e) {
@@ -52,7 +80,7 @@
             entry.setAttribute('data-score', t.data.score);
             entry.setAttribute('data-ups', t.data.ups);
             entry.setAttribute('data-downs', t.data.downs);
-            entry.setAttribute('data-age', t.data.age);
+            entry.setAttribute('data-age', t.data.created);
 
             var figure = document.createElement('figure');
             figure.href = t.data.url;
@@ -70,17 +98,17 @@
             var itemUps = document.createElement('span');
             var itemDowns = document.createElement('span');
             var date = document.createElement('span');
-            
+
             itemUps.innerHTML = '&#9786; (' + parseInt(t.data.ups) + ')';
             itemDowns.innerHTML = '&#9785; (' + parseInt(t.data.downs) + ')';
 
-            date.innerHTML =  new Date(t.data.created * 1000).toLocaleDateString('de-DE');
-                
+            date.innerHTML = new Date(t.data.created * 1000).toLocaleDateString('de-DE');
+
 
             footer.appendChild(itemUps);
             footer.appendChild(itemDowns);
             footer.appendChild(date);
-            ;
+            entry.addEventListener('click', showImage);
             container.appendChild(entry)
             entry.appendChild(figure);
             entry.appendChild(footer);
@@ -92,11 +120,13 @@
         entries = res.target.response.data.children;
 
         buildList(entries);
-        sort('downs'); // Funktioniert irgendwie nicht
+        filter.className='';
+        sort('ups'); // jetzt Funktioniert aber
     };
 
     var getJSON = function (sub, cat, limit) {
         if (!sub || !cat) return false;
+        filter.className='loading';
         var httpRequest = new XMLHttpRequest();
         httpRequest.onload = handleOnLoad;
         httpRequest.responseType = 'json';
